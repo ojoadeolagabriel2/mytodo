@@ -9,10 +9,14 @@ pipelines:
         branch: master
     stages:
        - build:
+          elastic_profile_id: test_id_1
           clean_workspace: true
           jobs:
             webapp-job:
               tasks:
                 - exec:
-                  command: 'ls'
+                    command: bash
+                    arguments: 
+                      - -c
+                      - 'ls'
 
