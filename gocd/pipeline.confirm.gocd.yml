@@ -1,0 +1,18 @@
+format_version: 9
+pipelines:
+  test-build-pipeline:
+    group: mytodo_group
+    label_template: "${mygit[:8]}"
+    materials:
+      mytodo-material:
+        git: https://github.com/ojoadeolagabriel2/mytodo.git
+        branch: master
+    stages:
+       - build:
+          clean_workspace: true
+          jobs:
+            webapp-job:
+              tasks:
+                - exec:
+                  command: 'ls'
+
